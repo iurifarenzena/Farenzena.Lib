@@ -1,10 +1,73 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26906.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Database", "Farenzena.Lib.Database\Farenzena.Lib.Database.csproj", "{86737C6D-7D5C-4069-876E-7C37D46A706A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Database.Connection.ConfigStorages", "Farenzena.Lib.Database.ConfigStorages\Farenzena.Lib.Database.Connection.ConfigStorages.csproj", "{D0CB9730-7F4E-4024-80DB-A0330AB8ACAA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Database.EFCore", "Farenzena.Lib.Database.EFCore\Farenzena.Lib.Database.EFCore.csproj", "{3D40D768-D049-44A3-B665-16F1F2A0639E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Database.Tests", "Farenzena.Lib.Database.Tests\Farenzena.Lib.Database.Tests.csproj", "{EED2FCF2-2C03-457B-A829-7E4E756B0960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Database.Connection.FormsUI", "Farenzena.Lib.Database.Connection.FormsUI\Farenzena.Lib.Database.Connection.FormsUI.csproj", "{25641EF2-0809-45D5-B5AE-B3D4E145B28C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Database.Test", "Farenzena.Lib.Database.Test\Farenzena.Lib.Database.Test.csproj", "{A2C2DC29-3CAC-4BD5-9430-CDFAD88DE82A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.WindowsService", "Farenzena.Lib.WindowsService\Farenzena.Lib.WindowsService.csproj", "{12A24FB0-EE15-4798-924A-B18D2EB3173A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.AppToAppMessaging", "Farenzena.Lib.AppToAppMessaging\Farenzena.Lib.AppToAppMessaging.csproj", "{30884510-CEE9-4811-9F5A-F34E0059CEAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Database.EF", "Farenzena.Lib.Database.EF\Farenzena.Lib.Database.EF.csproj", "{832A5B5A-2A07-4285-97F9-CA6724E08BF3}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86737C6D-7D5C-4069-876E-7C37D46A706A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86737C6D-7D5C-4069-876E-7C37D46A706A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86737C6D-7D5C-4069-876E-7C37D46A706A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86737C6D-7D5C-4069-876E-7C37D46A706A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0CB9730-7F4E-4024-80DB-A0330AB8ACAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0CB9730-7F4E-4024-80DB-A0330AB8ACAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0CB9730-7F4E-4024-80DB-A0330AB8ACAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0CB9730-7F4E-4024-80DB-A0330AB8ACAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D40D768-D049-44A3-B665-16F1F2A0639E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D40D768-D049-44A3-B665-16F1F2A0639E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D40D768-D049-44A3-B665-16F1F2A0639E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D40D768-D049-44A3-B665-16F1F2A0639E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EED2FCF2-2C03-457B-A829-7E4E756B0960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED2FCF2-2C03-457B-A829-7E4E756B0960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED2FCF2-2C03-457B-A829-7E4E756B0960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED2FCF2-2C03-457B-A829-7E4E756B0960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25641EF2-0809-45D5-B5AE-B3D4E145B28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25641EF2-0809-45D5-B5AE-B3D4E145B28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25641EF2-0809-45D5-B5AE-B3D4E145B28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25641EF2-0809-45D5-B5AE-B3D4E145B28C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C2DC29-3CAC-4BD5-9430-CDFAD88DE82A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C2DC29-3CAC-4BD5-9430-CDFAD88DE82A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C2DC29-3CAC-4BD5-9430-CDFAD88DE82A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C2DC29-3CAC-4BD5-9430-CDFAD88DE82A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A24FB0-EE15-4798-924A-B18D2EB3173A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A24FB0-EE15-4798-924A-B18D2EB3173A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A24FB0-EE15-4798-924A-B18D2EB3173A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A24FB0-EE15-4798-924A-B18D2EB3173A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30884510-CEE9-4811-9F5A-F34E0059CEAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30884510-CEE9-4811-9F5A-F34E0059CEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30884510-CEE9-4811-9F5A-F34E0059CEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30884510-CEE9-4811-9F5A-F34E0059CEAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832A5B5A-2A07-4285-97F9-CA6724E08BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832A5B5A-2A07-4285-97F9-CA6724E08BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832A5B5A-2A07-4285-97F9-CA6724E08BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832A5B5A-2A07-4285-97F9-CA6724E08BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FE1D87E-D98C-4A01-995F-9F6F9EA9EBDC}
 	EndGlobalSection
 EndGlobal

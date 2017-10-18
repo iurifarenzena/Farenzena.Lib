@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DataConnectionDialog" Version="1.2.0">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.ConnectionUI" Version="15.0.26606">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Farenzena.Lib.Database.ConfigStorages\Farenzena.Lib.Database.Connection.ConfigStorages.csproj" />
+    <ProjectReference Include="..\Farenzena.Lib.Database.Connection.FormsUI\Farenzena.Lib.Database.Connection.FormsUI.csproj" />
+    <ProjectReference Include="..\Farenzena.Lib.Database.EFCore\Farenzena.Lib.Database.EFCore.csproj" />
+    <ProjectReference Include="..\Farenzena.Lib.Database\Farenzena.Lib.Database.csproj" />
+  </ItemGroup>
+
+</Project>
