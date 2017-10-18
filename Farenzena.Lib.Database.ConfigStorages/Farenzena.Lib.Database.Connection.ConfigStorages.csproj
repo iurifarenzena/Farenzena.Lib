@@ -2,14 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>iurifarenzena</Authors>
+    <Company>Farenzena</Company>
+    <Product>Farenzena.Lib</Product>
+    <Copyright>2017</Copyright>
+    <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
+    <PackageReleaseNotes>First beta release</PackageReleaseNotes>
+    <RepositoryType>github</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Farenzena.Lib.Database" Version="1.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Farenzena.Lib.Database\Farenzena.Lib.Database.csproj" />
   </ItemGroup>
 
 </Project>

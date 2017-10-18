@@ -6,6 +6,11 @@
     <Authors>iurifarenzena</Authors>
     <Company>Farenzena</Company>
     <Copyright>2017</Copyright>
+    <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>First beta release</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
