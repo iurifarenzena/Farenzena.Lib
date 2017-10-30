@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace Farenzena.Lib.Database
             return AsQueryable().Any();
         }
 
-        public bool Any(Func<TPoco, bool> filter)
+        public bool Any(Expression<Func<TPoco, bool>> filter)
         {
             return AsQueryable().Any(filter);
         }
@@ -25,7 +26,7 @@ namespace Farenzena.Lib.Database
             return AsQueryable().Count();
         }
 
-        public int Count(Func<TPoco, bool> filter)
+        public int Count(Expression<Func<TPoco, bool>> filter)
         {
             return AsQueryable().Count(filter);
         }
@@ -35,14 +36,14 @@ namespace Farenzena.Lib.Database
             DeleteAll(e => true);
         }
 
-        public abstract void DeleteAll(Func<TPoco, bool> filter);
+        public abstract void DeleteAll(Expression<Func<TPoco, bool>> filter);
 
         public async Task DeleteAllAsync()
         {
             await Task.Run(() => DeleteAll());
         }
 
-        public async Task DeleteAllAsync(Func<TPoco, bool> filter)
+        public async Task DeleteAllAsync(Expression<Func<TPoco, bool>> filter)
         {
             await Task.Run(() => DeleteAll(filter));
         }
@@ -55,19 +56,19 @@ namespace Farenzena.Lib.Database
             return GetAll(e => true);
         }
 
-        public IEnumerable<TPoco> GetAll(Func<TPoco, bool> filter)
+        public IEnumerable<TPoco> GetAll(Expression<Func<TPoco, bool>> filter)
         {
             return AsQueryable().Where(filter);
         }
-        public abstract IEnumerable<TPoco> GetAllLocal(Func<TPoco, bool> filter);
+        public abstract IEnumerable<TPoco> GetAllLocal(Expression<Func<TPoco, bool>> filter);
 
-        public TPoco Get(Func<TPoco, bool> filter)
+        public TPoco Get(Expression<Func<TPoco, bool>> filter)
         {
             return AsQueryable().SingleOrDefault(filter);
         }
 
         public abstract TPoco Get(params object[] primaryKeys);
-        public abstract TPoco GetLocal(Func<TPoco, bool> filter);
+        public abstract TPoco GetLocal(Expression<Func<TPoco, bool>> filter);
         public abstract void Save(TPoco entry, bool forceInsert = false);
     }
 }

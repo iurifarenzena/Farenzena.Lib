@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,7 +40,7 @@ namespace Farenzena.Lib.Database.EFCore
             }
         }
 
-        public override void DeleteAll(Func<TPoco, bool> filter)
+        public override void DeleteAll(Expression<Func<TPoco, bool>> filter)
         {
             var allItems = _context.Set<TPoco>().Where(filter);
             _context.Set<TPoco>().RemoveRange(allItems);
@@ -55,14 +56,14 @@ namespace Farenzena.Lib.Database.EFCore
             return _context.Set<TPoco>().Find(primaryKeys);
         }
 
-        public override IEnumerable<TPoco> GetAllLocal(Func<TPoco, bool> filter)
+        public override IEnumerable<TPoco> GetAllLocal(Expression<Func<TPoco, bool>> filter)
         {
-            return _context.Set<TPoco>().Local.Where(filter);
+            return _context.Set<TPoco>().Local.Where(filter.Compile());
         }
 
-        public override TPoco GetLocal(Func<TPoco, bool> filter)
+        public override TPoco GetLocal(Expression<Func<TPoco, bool>> filter)
         {
-            return _context.Set<TPoco>().Local.SingleOrDefault(filter);
+            return _context.Set<TPoco>().Local.SingleOrDefault(filter.Compile());
         }
 
         public override void Save(TPoco entry, bool forceInsert = false)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +29,7 @@ namespace Farenzena.Lib.Database.EF
             return _context.Set<TPoco>();
         }
 
-        public override void DeleteAll(Func<TPoco, bool> filter)
+        public override void DeleteAll(Expression<Func<TPoco, bool>> filter)
         {
             var allItems = _context.Set<TPoco>().Where(filter);
             _context.Set<TPoco>().RemoveRange(allItems);
@@ -54,9 +55,9 @@ namespace Farenzena.Lib.Database.EF
             _context = null;
         }
 
-        public override IEnumerable<TPoco> GetAllLocal(Func<TPoco, bool> filter)
+        public override IEnumerable<TPoco> GetAllLocal(Expression<Func<TPoco, bool>> filter)
         {
-            return _context.Set<TPoco>().Local.Where(filter);
+            return _context.Set<TPoco>().Local.Where(filter.Compile());
         }
 
         public override TPoco Get(params object[] primaryKeys)
@@ -64,9 +65,9 @@ namespace Farenzena.Lib.Database.EF
             return _context.Set<TPoco>().Find(primaryKeys);
         }
 
-        public override TPoco GetLocal(Func<TPoco, bool> filter)
+        public override TPoco GetLocal(Expression<Func<TPoco, bool>> filter)
         {
-            return _context.Set<TPoco>().Local.SingleOrDefault(filter);
+            return _context.Set<TPoco>().Local.SingleOrDefault(filter.Compile());
         }
 
         public override void Save(TPoco entry, bool forceInsert = false)
@@ -91,8 +92,9 @@ namespace Farenzena.Lib.Database.EF
 
                 _context.Set<TPoco>().Add(entry.Entity as TPoco);
             }
-            else if (entry.State == EntityState.Detached || // Não está atachado
-                (entry.State != EntityState.Added && entry.State != EntityState.Deleted)) // Ou não está marcado para deletar ou adicionar
+            else if (entry.State != EntityState.Modified &&
+                (entry.State == EntityState.Detached || // Não está atachado
+                (entry.State != EntityState.Added && entry.State != EntityState.Deleted))) // Ou não está marcado para deletar ou adicionar
             {
                 _context.Set<TPoco>().Attach(entry.Entity);
                 entry.State = EntityState.Modified;
