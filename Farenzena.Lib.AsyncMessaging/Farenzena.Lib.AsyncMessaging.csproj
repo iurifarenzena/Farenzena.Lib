@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>iurifarenzena</Authors>
+    <Company>Farenzena</Company>
+    <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright>2017</Copyright>
+    <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageTags>Farenzena</PackageTags>
+    <Description>Main library for implementing asynchronous messaging</Description>
+  </PropertyGroup>
+
+</Project>

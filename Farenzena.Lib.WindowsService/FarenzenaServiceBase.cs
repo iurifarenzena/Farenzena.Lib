@@ -34,8 +34,8 @@ namespace Farenzena.Lib.WindowsService
                             break;
                         case "run":
                             serviceToRun.OnStart(args);
-                            Console.WriteLine("Serviço em execução. Precione qualquer tecla para finalizar.");
-                            Console.ReadKey();
+                            Console.WriteLine("The service is running as an application. Press the ENTER key to exit.");
+                            Console.ReadLine();
                             serviceToRun.Stop();
                             break;
                         default:
