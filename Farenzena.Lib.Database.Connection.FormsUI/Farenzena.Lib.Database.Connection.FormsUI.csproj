@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Farenzena.Lib.Database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Farenzena.Lib.Database.1.0.0\lib\netstandard2.0\Farenzena.Lib.Database.dll</HintPath>
+    <Reference Include="Farenzena.Lib.Database, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Farenzena.Lib.Database.1.0.1\lib\netstandard2.0\Farenzena.Lib.Database.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.ConnectionUI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=f4ca07f51760da93, processorArchitecture=MSIL">
       <HintPath>..\packages\DataConnectionDialog.1.2\lib\Microsoft.Data.ConnectionUI.dll</HintPath>
