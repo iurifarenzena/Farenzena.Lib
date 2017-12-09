@@ -38,7 +38,6 @@ namespace Farenzena.Lib.Database.Connection.FormsUI
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
                 return showConfigurationInterface && Configure(connectionId, validateConfigFunc);
             }
 

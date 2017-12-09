@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Farenzena.Lib.AsyncMessaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Farenzena.Lib.AsyncMessaging.1.0.0\lib\netstandard2.0\Farenzena.Lib.AsyncMessaging.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -52,10 +55,7 @@
     <Compile Include="SourceSideMessageHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Farenzena.Lib.AsyncMessaging\Farenzena.Lib.AsyncMessaging.csproj">
-      <Project>{64ab5e37-26bb-471e-81b1-4c76959db75e}</Project>
-      <Name>Farenzena.Lib.AsyncMessaging</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

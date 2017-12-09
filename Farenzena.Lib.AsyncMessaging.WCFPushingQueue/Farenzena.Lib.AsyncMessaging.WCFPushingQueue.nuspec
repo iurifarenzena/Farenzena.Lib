@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Farenzena.Lib.AsyncMessaging.WCFPushingQueue</id>
+    <version>1.0.0.1</version>
+    <title>Farenzena.Lib.AsyncMessaging.WCFPushingQueue</title>
+    <authors>iurifarenzena</authors>
+    <owners>Farenzena</owners>
+    <licenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/iurifarenzena/Farenzena.Lib</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Implements a queue that pushes messages to a remote WCF client</description>
+    <releaseNotes>First beta release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>async messaging farenzena</tags>
+  </metadata>
+</package>

@@ -18,7 +18,7 @@ namespace Farenzena.Lib.WindowsService
         {
             var arquivo = $"error_{serviceName}_log_{DateTime.Now:dd-MM-yyyy_HHmmss}.txt";
             arquivo = Path.Combine(Environment.GetEnvironmentVariable("TEMP", EnvironmentVariableTarget.Machine), arquivo);
-            File.WriteAllText(arquivo, $"{DateTime.Now} -> {error.Message}");
+            File.WriteAllText(arquivo, $"{DateTime.Now} -> {error.Message} -> {error.StackTrace}");
             var errors = error.InnerException;
 
             var tabs = "\t";
