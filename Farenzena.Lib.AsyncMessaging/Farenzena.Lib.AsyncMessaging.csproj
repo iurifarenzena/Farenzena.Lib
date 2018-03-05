@@ -7,12 +7,15 @@
     <Authors>iurifarenzena</Authors>
     <Company>Farenzena</Company>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
-    <Copyright>2017</Copyright>
+    <Copyright>2018</Copyright>
     <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>Farenzena</PackageTags>
     <Description>Main library for implementing asynchronous messaging</Description>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>

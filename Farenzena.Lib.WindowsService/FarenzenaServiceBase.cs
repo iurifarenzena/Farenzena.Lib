@@ -83,7 +83,7 @@ namespace Farenzena.Lib.WindowsService
             _timer.Interval = GetJobInterval();
 
             _thread = new Thread(WorkerThreadFunc);
-            _thread.Name = "Liberardor de Tarefas";
+            _thread.Name = "WorkerThreadFunc";
             _thread.IsBackground = true;
             _thread.Start();
         }
@@ -97,7 +97,7 @@ namespace Farenzena.Lib.WindowsService
             catch (Exception e)
             {
                 CriticalErrorLogger.LogCriticalError(e, ServiceName);
-                throw;
+                //throw; REMOVED this throw here because it would cause the service to stop in the event of a failling execution
             }
             finally
             {

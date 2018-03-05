@@ -97,12 +97,21 @@ namespace Farenzena.Lib.AsyncMessaging
             if (!_initialized)
                 throw new InvalidOperationException("The Message Queue Handler was not initialized");
 
-            while (_messageQueue.Count >= NUM_MESSAGES_KEEP)
+            while (!_busyHandlingMessages && _messageQueue.Count >= NUM_MESSAGES_KEEP)
                 _messageQueue.RemoveFirst();
 
-            // Enqueeu a callback for this messagem
-            MessageCallback messageCallback = new MessageCallback(message, callback);
-            _messageQueue.AddLast(messageCallback);
+            try
+            {
+                // Enqueeu a callback for this messagem
+                MessageCallback messageCallback = new MessageCallback(message, callback);
+                _messageQueue.AddLast(messageCallback);
+            }
+            catch (NullReferenceException nre)
+            {
+                if (_messageQueue == null)
+                    throw new NullReferenceException($"{nameof(_messageQueue)} is null");
+                throw new NullReferenceException("There is an error in the LinkedList.AddLast component method of .NET Framework");
+            }
             //Stars the queue processing
             HandleMessageQueueAsync();
         }
