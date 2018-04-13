@@ -12,6 +12,8 @@ namespace Farenzena.Lib.WindowsService
 {
     public abstract partial class FarenzenaServiceBase : ServiceBase
     {
+        public const int CMD_DO_SERVICE_JOB = 255;
+
         public static void Run(FarenzenaServiceBase serviceToRun, params string[] args)
         {
             try
@@ -106,29 +108,40 @@ namespace Farenzena.Lib.WindowsService
 
         private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            _timer.Stop();
-            _timer.Interval = GetJobInterval();
-
-            _thread = new Thread(WorkerThreadFunc);
-            _thread.Name = "WorkerThreadFunc";
-            _thread.IsBackground = true;
-            _thread.Start();
+            StartWorkerThreadFunc(false);
         }
 
-        private void WorkerThreadFunc()
+        private void StartWorkerThreadFunc(bool forced)
         {
+            void Reset()
+            {
+                _thread = null;
+                _timer.Start();
+            }
+         
+            // If there is a thread, the job is already running
+            if (_thread != null)
+                return;
+
             try
             {
-                DoServiceJob(false);
+                _timer.Stop();
+                _timer.Interval = GetJobInterval();
+
+                _thread = new Thread(() =>
+                {
+                    DoServiceJob(forced);
+                    Reset();
+                });
+                _thread.Name = "WorkerThreadFunc";
+                _thread.IsBackground = true;
+                _thread.Start();
             }
             catch (Exception e)
             {
                 CriticalErrorLogger.LogCriticalError(e, ServiceName);
                 //throw; REMOVED this throw here because it would cause the service to stop in the event of a failling execution
-            }
-            finally
-            {
-                _timer.Start();
+                Reset();
             }
         }
 
@@ -147,11 +160,22 @@ namespace Farenzena.Lib.WindowsService
             }
         }
 
+        protected override void OnCustomCommand(int command)
+        {
+            base.OnCustomCommand(command);
+
+            if (command == CMD_DO_SERVICE_JOB)
+                StartWorkerThreadFunc(true);
+            else
+                HandleNonDefaultCommand(command);
+        }
+
         public abstract void ConfigureService();
         public abstract void ServiceStarting();
         public abstract void ServiceStopping();
         public abstract void DoServiceJob(bool forcedExecution);
         public abstract double GetFirstExecutionInterval();
         public abstract double GetJobInterval();
+        public abstract void HandleNonDefaultCommand(int command);
     }
 }
