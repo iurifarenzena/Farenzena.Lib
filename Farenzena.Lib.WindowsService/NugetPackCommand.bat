@@ -1,0 +1,1 @@
+nuget pack Farenzena.Lib.WindowsService.csproj -IncludeReferencedProjects -Properties Configuration=Release -OutputDirectory bin\Nuget

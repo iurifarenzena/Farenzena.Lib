@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CriticalErrorLogger.cs" />    
+    <Compile Include="CriticalErrorLogger.cs" />
     <Compile Include="FarenzenaServiceBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -49,6 +49,9 @@
       <DependentUpon>FarenzenaServiceBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NugetPackCommand.bat" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
