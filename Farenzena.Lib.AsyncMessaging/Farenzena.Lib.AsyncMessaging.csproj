@@ -13,9 +13,10 @@
     <RepositoryType>github</RepositoryType>
     <PackageTags>Farenzena</PackageTags>
     <Description>Main library for implementing asynchronous messaging</Description>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
-    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>Optimized queue handling</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>

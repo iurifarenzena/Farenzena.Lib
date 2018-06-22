@@ -16,28 +16,33 @@ namespace Farenzena.Lib.Database
         public abstract List<Type> GetAcceptedPocoTypes(Type dataContextType);
         public abstract object GetDataContextOfType(Type dataContextType);
         public abstract IRepository<TPoco> GetRepository<TPoco>(object dataContext) where TPoco : class;
-        
+
+        [Obsolete("This method must not be used. Use DataContextManager.GetDataContext<TDataContext> instead.", true)]
         public object GetDataContextForTypeOfPOCO(Type pocoType)
+        {
+            return null;
+        }
+
+        public Type GetDataContextTypeForPOCOType(Type pocoType)
         {
             // If none context type was registered, there is no point in looking up
             if (!ContextToPocoTypesRelation.Any())
                 return null;
             // If there is only one context type registered, just assume this is the right one
             else if (ContextToPocoTypesRelation.Count == 1)
-                return GetDataContextOfType(ContextToPocoTypesRelation.Keys.First());
+                return ContextToPocoTypesRelation.Keys.First();
             else
             {
                 // Check if one of the registered contexts can handle the POCO type
                 foreach (var contextType in ContextToPocoTypesRelation.Keys)
                 {
-                    if(ContextToPocoTypesRelation[contextType].Contains(pocoType))
-                        return GetDataContextOfType(contextType);
+                    if (ContextToPocoTypesRelation[contextType].Contains(pocoType))
+                        return contextType;
                 }
             }
-
             return null;
         }
-     
+
         public void RegisterDataContextType(Type dataContextType)
         {
             RegisterDataContextType(dataContextType, GetAcceptedPocoTypes(dataContextType));

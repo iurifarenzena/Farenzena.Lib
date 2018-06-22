@@ -15,7 +15,10 @@ namespace Farenzena.Lib.Database
 
         List<Type> GetAcceptedPocoTypes(Type dataContextType);
 
+        [Obsolete("This method must not be used. Use DataContextManager.GetDataContext<TDataContext> instead.", true)]
         object GetDataContextForTypeOfPOCO(Type pocoType);
+
+        Type GetDataContextTypeForPOCOType(Type pocoType);
 
         object GetDataContextOfType(Type dataContextType);
         

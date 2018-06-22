@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!--*-->
+    <id>Farenzena.Lib.Database.Connection.FormsUI</id>
+    <!--*-->
+    <version>1.1.2</version>
+    <title>Farenzena.Lib.Database.Connection.FormsUI</title>
+    <!--*-->
+    <authors>iurifarenzena</authors>
+    <owners>Farenzena</owners>
+    <licenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/iurifarenzena/Farenzena.Lib/</projectUrl>
+    <!-- <iconUrl></iconUrl>
+-->
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <!--*-->
+    <description>Windows dialog configurator for database connections</description>
+    <!--*-->
+    <releaseNotes>Simplified connection validation class.
+BREAKING CHANGES:
+Former class has been made obsolete.</releaseNotes>
+    <copyright>Copyright ©  2018</copyright>
+    <tags>
+    </tags>
+    <dependencies>
+      <!--
+      <dependency id="SampleDependency" version="1.0" />
+-->
+    </dependencies>
+  </metadata>
+</package>

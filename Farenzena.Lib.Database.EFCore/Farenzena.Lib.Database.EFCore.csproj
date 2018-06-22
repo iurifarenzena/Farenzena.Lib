@@ -2,17 +2,25 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>iurifarenzena</Authors>
+    <Company>Farenzena</Company>
+    <Product>Farenzena.Lib</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Database implementations using Entity Framework Core</Description>
+    <Copyright>2018</Copyright>
+    <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageReleaseNotes>First beta release</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Farenzena.Lib.Database" Version="1.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Farenzena.Lib.Database\Farenzena.Lib.Database.csproj" />
   </ItemGroup>
 
 </Project>

@@ -161,14 +161,13 @@ namespace Farenzena.Lib.AsyncMessaging
                             firstNode = firstNode.Next;
                             _messageQueue.RemoveFirst();
                         }
+                        _busyHandlingMessages = false;
                     }
                     catch (MessageHandlerUnavailableException)
                     {
-
+                        _busyHandlingMessages = false;
                     }
-                });
-
-                _busyHandlingMessages = false;
+                });             
             }
         }
     }

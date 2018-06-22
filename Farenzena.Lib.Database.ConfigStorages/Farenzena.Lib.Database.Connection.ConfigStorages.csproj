@@ -6,15 +6,17 @@
     <Authors>iurifarenzena</Authors>
     <Company>Farenzena</Company>
     <Product>Farenzena.Lib</Product>
-    <Copyright>2017</Copyright>
+    <Copyright>2018</Copyright>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
-    <PackageReleaseNotes>First beta release</PackageReleaseNotes>
+    <PackageReleaseNotes>Added InMemory config storage</PackageReleaseNotes>
     <RepositoryType>github</RepositoryType>
+    <Version>1.0.1</Version>
+    <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Farenzena.Lib.Database" Version="1.0.0" />
+    <PackageReference Include="Farenzena.Lib.Database" Version="1.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 

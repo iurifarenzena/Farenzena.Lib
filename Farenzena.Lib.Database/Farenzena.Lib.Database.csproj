@@ -5,13 +5,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>iurifarenzena</Authors>
     <Company>Farenzena</Company>
-    <Copyright>2017</Copyright>
+    <Copyright>2018</Copyright>
     <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>Fix how filter clause parameters are received so EF can convert it to database expressions</PackageReleaseNotes>
+    <PackageReleaseNotes>New DatabaseConfigurator class to help setup the environment to use the Database library</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
