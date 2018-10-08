@@ -22,8 +22,9 @@ namespace Farenzena.Lib.Database.EFCore
 
                 return true;
             }
-            catch (DatabaseConnectionException)
+            catch (DatabaseConnectionException bde)
             {
+                System.IO.File.WriteAllText("dberror.txt", bde.ToString());
                 return false;
             }
         }
@@ -133,10 +134,17 @@ namespace Farenzena.Lib.Database.EFCore
                 ConfigureForMSSQLServer(config, dbOptions);
             else if (config.DatabaseType == EDatabaseType.SQLite)
                 ConfigureForSQLite(config, dbOptions);
+            else if (config.DatabaseType == EDatabaseType.InMemoryTempDB)
+                ConfigureForInMemoryTempDB(config, dbOptions);
             else
                 throw new DatabaseConnectionException($"Connections with database type {config.DatabaseType} are not supported yet.");
 
             return dbOptions;
+        }
+
+        private void ConfigureForInMemoryTempDB<TDataContext>(DatabaseConnectionConfiguration config, DbContextOptionsBuilder<TDataContext> dbContextOptionsBuilder) where TDataContext : DbContext
+        {
+            dbContextOptionsBuilder.UseInMemoryDatabase(config.ConnectionString);
         }
 
         private void ConfigureForSQLite<TDataContext>(DatabaseConnectionConfiguration config, DbContextOptionsBuilder<TDataContext> dbContextOptionsBuilder) where TDataContext : DbContext

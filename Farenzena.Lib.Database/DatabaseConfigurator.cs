@@ -1,7 +1,6 @@
 ﻿using Farenzena.Lib.Database.Connection;
+using Farenzena.Lib.Diagnostic.Log;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Farenzena.Lib.Database
 {
@@ -29,8 +28,11 @@ namespace Farenzena.Lib.Database
 
         public static bool CheckRegisteredDatabasesConnections(bool allowConfiguration, bool forceConfiguration = false)
         {
+            LoggerService.LogDebugAsync(() => $"").Wait();
+            System.IO.File.AppendAllLines("log.txt", new string[] { "\n", "CheckRegisteredDatabasesConnections" });
             foreach (var dbcType in DataContextManager.DataContextHandler.ContextToPocoTypesRelation.Keys)
             {
+                System.IO.File.AppendAllLines("log.txt", new string[] { "\n", dbcType.FullName });
                 if (!CheckDatabaseConnection(dbcType, allowConfiguration))
                     return false;
             }
@@ -47,6 +49,8 @@ namespace Farenzena.Lib.Database
 
         public static bool CheckDatabaseConnection(string connectionId, Func<DatabaseConnectionConfiguration, bool> validateConfigFunc, bool allowConfiguration, bool forceConfiguration = false)
         {
+            System.IO.File.AppendAllLines("log.txt", new string[] { "\n", $"CheckDatabaseConnection: {connectionId}" });
+
             if ((allowConfiguration || forceConfiguration) && DatabaseConnectionConfigurator == null)
                 throw new InvalidOperationException("The DatabaseConnectionConfigurator is null");
 
@@ -79,8 +83,9 @@ namespace Farenzena.Lib.Database
                     else
                         connectionSucceeded = true;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    System.IO.File.AppendAllLines("log.txt", new string[] { "\n", $"CheckDatabaseConnection ERROR: {ex}" });
                 }
 
             } //while (!connectionSucceeded && allowConfiguration);

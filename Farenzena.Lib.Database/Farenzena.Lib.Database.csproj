@@ -2,17 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>iurifarenzena</Authors>
     <Company>Farenzena</Company>
     <Copyright>2018</Copyright>
     <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>New DatabaseConfigurator class to help setup the environment to use the Database library</PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.3</Version>
+    <PackageReleaseNotes>NEW InMemoryTempDB option for using in memory databases with data stored at runtime only.</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Version>1.0.4</Version>
+    <Product>Farenzena.Lib.Database</Product>
+    <Description>Implementations to ease the development of application with database connection</Description>
+    <PackageId>Farenzena.Lib.Database</PackageId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Farenzena.Lib.Diagnostic.Log\Farenzena.Lib.Diagnostic.Log.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Update="NETStandard.Library" Version="2.0.0" />

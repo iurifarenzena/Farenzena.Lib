@@ -8,6 +8,7 @@ namespace Farenzena.Lib.Database.Connection
     {
         MSSQLServer,
         SQLite,
-        Oracle
+        Oracle,
+        InMemoryTempDB
     }
 }

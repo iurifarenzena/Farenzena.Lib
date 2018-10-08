@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Product>Farenzena.Lib.Diagnostic</Product>
+    <Description>Basic diagnostic lib</Description>
+    <Copyright>Farenzena 2018</Copyright>
+    <PackageId>Farenzena.Lib.Diagnostic</PackageId>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Version>1.0.0</Version>
+    <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
+    <PackageTags>Farenzena; Diagnostic</PackageTags>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Company>Farenzena.Lib.Diagnostic</Company>
+    <Authors>Farenzena.Lib.Diagnostic</Authors>
+  </PropertyGroup>
+
+</Project>

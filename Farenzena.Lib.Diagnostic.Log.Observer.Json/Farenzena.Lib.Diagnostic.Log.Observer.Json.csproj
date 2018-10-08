@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Product>Farenzena.Lib.Diagnostic.Log.Observer.Json</Product>
+    <Description>Provides a Json observer to handle log messages and write them to json files</Description>
+    <Copyright>Farenzena 2018</Copyright>
+    <PackageId>Farenzena.Lib.Diagnostic.Log.Observer.Json</PackageId>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Version>1.0.0</Version>
+    <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
+    <PackageTags>Farenzena, Log, Json</PackageTags>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Company>Farenzena.Lib.Diagnostic.Log.Observer.Json</Company>
+    <Authors>Farenzena.Lib.Diagnostic.Log.Observer.Json</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Farenzena.Lib.Diagnostic.Log\Farenzena.Lib.Diagnostic.Log.csproj" />
+  </ItemGroup>
+
+</Project>
