@@ -9,9 +9,9 @@
     <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>NEW InMemoryTempDB option for using in memory databases with data stored at runtime only.</PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>1.0.4</Version>
+    <PackageReleaseNotes>Added logging</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>1.0.5.2-beta</Version>
     <Product>Farenzena.Lib.Database</Product>
     <Description>Implementations to ease the development of application with database connection</Description>
     <PackageId>Farenzena.Lib.Database</PackageId>

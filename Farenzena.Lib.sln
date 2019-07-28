@@ -25,11 +25,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.AsyncMessagin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.EventAggregator", "Farenzena.Lib.EventAggregator\Farenzena.Lib.EventAggregator.csproj", "{C0058342-9D1F-4E41-96EF-3C0F60AA9FA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Diagnostic", "Farenzena.Lib.Diagnostic\Farenzena.Lib.Diagnostic.csproj", "{C7056448-217D-427A-8050-18161B833C57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Diagnostic", "Farenzena.Lib.Diagnostic\Farenzena.Lib.Diagnostic.csproj", "{C7056448-217D-427A-8050-18161B833C57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Diagnostic.Log", "Farenzena.Lib.Diagnostic.Log\Farenzena.Lib.Diagnostic.Log.csproj", "{05C0D1F1-1037-44F2-8199-CCDE3A2F49D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Diagnostic.Log", "Farenzena.Lib.Diagnostic.Log\Farenzena.Lib.Diagnostic.Log.csproj", "{05C0D1F1-1037-44F2-8199-CCDE3A2F49D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Diagnostic.Log.Observer.Json", "Farenzena.Lib.Diagnostic.Log.Observer.Json\Farenzena.Lib.Diagnostic.Log.Observer.Json.csproj", "{83AA21CD-8D27-4170-BB9A-D988FD6B9076}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Diagnostic.Log.Observer.Json", "Farenzena.Lib.Diagnostic.Log.Observer.Json\Farenzena.Lib.Diagnostic.Log.Observer.Json.csproj", "{83AA21CD-8D27-4170-BB9A-D988FD6B9076}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Diagnostic.Log.Observer.Console", "Farenzena.Lib.Diagnostic.Log.Observer.Console\Farenzena.Lib.Diagnostic.Log.Observer.Console.csproj", "{5FAA82CB-5DA3-43EA-8A54-4FC6F943EBF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue", "Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue\Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue.csproj", "{C699B2C6-99C6-47C9-B385-EDB255873B6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +97,14 @@ Global
 		{83AA21CD-8D27-4170-BB9A-D988FD6B9076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83AA21CD-8D27-4170-BB9A-D988FD6B9076}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83AA21CD-8D27-4170-BB9A-D988FD6B9076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FAA82CB-5DA3-43EA-8A54-4FC6F943EBF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FAA82CB-5DA3-43EA-8A54-4FC6F943EBF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FAA82CB-5DA3-43EA-8A54-4FC6F943EBF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FAA82CB-5DA3-43EA-8A54-4FC6F943EBF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C699B2C6-99C6-47C9-B385-EDB255873B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C699B2C6-99C6-47C9-B385-EDB255873B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C699B2C6-99C6-47C9-B385-EDB255873B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C699B2C6-99C6-47C9-B385-EDB255873B6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

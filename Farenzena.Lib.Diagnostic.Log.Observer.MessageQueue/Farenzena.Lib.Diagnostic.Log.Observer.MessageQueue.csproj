@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0-beta</Version>
+    <Authors>iurifarenzena</Authors>
+    <Company>Farenzena</Company>
+    <Product>Farenzena.Lib</Product>
+    <Description>Provides a MessageQueue observer to handle log messages and send them through the configured MessageQueue</Description>
+    <Copyright>Farenzena 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
+    <PackageTags>farenzena log messagequeue</PackageTags>
+    <PackageReleaseNotes>First beta release</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Farenzena.Lib.AsyncMessaging" Version="1.0.3" />
+    <PackageReference Include="Farenzena.Lib.Diagnostic.Log" Version="1.0.0-beta" />
+  </ItemGroup>
+
+</Project>

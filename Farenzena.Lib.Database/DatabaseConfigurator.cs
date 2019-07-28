@@ -28,11 +28,10 @@ namespace Farenzena.Lib.Database
 
         public static bool CheckRegisteredDatabasesConnections(bool allowConfiguration, bool forceConfiguration = false)
         {
-            LoggerService.LogDebugAsync(() => $"").Wait();
-            System.IO.File.AppendAllLines("log.txt", new string[] { "\n", "CheckRegisteredDatabasesConnections" });
+            LoggerService.LogDebugAsync("CheckRegisteredDatabasesConnections", () => new { allowConfiguration, forceConfiguration }).Wait();
             foreach (var dbcType in DataContextManager.DataContextHandler.ContextToPocoTypesRelation.Keys)
             {
-                System.IO.File.AppendAllLines("log.txt", new string[] { "\n", dbcType.FullName });
+                //System.IO.File.AppendAllLines("log.txt", new string[] { "\n", dbcType.FullName });
                 if (!CheckDatabaseConnection(dbcType, allowConfiguration))
                     return false;
             }
@@ -49,10 +48,13 @@ namespace Farenzena.Lib.Database
 
         public static bool CheckDatabaseConnection(string connectionId, Func<DatabaseConnectionConfiguration, bool> validateConfigFunc, bool allowConfiguration, bool forceConfiguration = false)
         {
-            System.IO.File.AppendAllLines("log.txt", new string[] { "\n", $"CheckDatabaseConnection: {connectionId}" });
-
+            LoggerService.LogDebugAsync("CheckRegisteredDatabasesConnections", () => new { allowConfiguration, forceConfiguration, connectionId }).Wait();
             if ((allowConfiguration || forceConfiguration) && DatabaseConnectionConfigurator == null)
-                throw new InvalidOperationException("The DatabaseConnectionConfigurator is null");
+            {
+                var logmessage = "DatabaseConnectionConfigurator is null";
+                LoggerService.LogAsync(logmessage, ELogType.Error, new { allowConfiguration, forceConfiguration, connectionId }).Wait();
+                throw new InvalidOperationException(logmessage);
+            }
 
             var connectionSucceeded = false;
             DatabaseConnectionConfiguration config = null;
@@ -71,13 +73,13 @@ namespace Farenzena.Lib.Database
                 try
                 {
                     // Try the first time without configuring
-                    if (forceConfiguration || !validateConfigFunc(config))
+                    if (forceConfiguration || !Validate())
                     {
                         // If it fails, try to configure, and then check again
                         if ((allowConfiguration || forceConfiguration) && DatabaseConnectionConfigurator.Configure(ref config))
                         {
                             DatabaseConnectionManager.SaveConfiguration(config);
-                            connectionSucceeded = validateConfigFunc(config);
+                            connectionSucceeded = Validate();
                         }
                     }
                     else
@@ -85,12 +87,25 @@ namespace Farenzena.Lib.Database
                 }
                 catch (Exception ex)
                 {
-                    System.IO.File.AppendAllLines("log.txt", new string[] { "\n", $"CheckDatabaseConnection ERROR: {ex}" });
+                    LoggerService.LogAsync(ex).Wait();
                 }
 
             } //while (!connectionSucceeded && allowConfiguration);
 
             return connectionSucceeded;
+
+            bool Validate()
+            {
+                try
+                {
+                    return validateConfigFunc(config);
+                }
+                catch (Exception dbe)
+                {
+                    LoggerService.Log(dbe);
+                    return false;
+                }
+            }
         }
     }
 }

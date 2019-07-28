@@ -14,7 +14,8 @@ namespace Farenzena.Lib.WindowsService
         /// </summary>
         /// <param name="error"></param>
         /// <param name="serviceName"></param>
-        public static void LogCriticalError(Exception error, string serviceName)
+        /// <returns>Returns the name of the logfile crated</returns>
+        public static string LogCriticalError(Exception error, string serviceName)
         {
             var arquivo = $"error_{serviceName}_log_{DateTime.Now:dd-MM-yyyy_HHmmss}.txt";
             arquivo = Path.Combine(Environment.GetEnvironmentVariable("TEMP", EnvironmentVariableTarget.Machine), arquivo);
@@ -28,6 +29,8 @@ namespace Farenzena.Lib.WindowsService
                 errors = errors.InnerException;
                 tabs += "\t";
             }
+
+            return arquivo;
         }
     }
 }

@@ -70,6 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Farenzena.Lib.Database.EF.nuspec" />
+    <None Include="NugetPackCommand.bat" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

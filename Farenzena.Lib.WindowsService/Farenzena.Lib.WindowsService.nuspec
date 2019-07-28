@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Farenzena.Lib.WindowsService</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <title>Farenzena.Lib.WindowsService</title>
 <authors>iurifarenzena</authors>
     <owners>Farenzena</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/iurifarenzena/Farenzena.Lib</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Provides key functions for implementing WindowsService applications</description>
-    <releaseNotes>Added handling of custom commands</releaseNotes>
+    <releaseNotes>CriticalErrorLogger now gives back the path of the log file created</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>WindowsService farenzena</tags>
   </metadata>

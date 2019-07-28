@@ -23,17 +23,10 @@ namespace Farenzena.Lib.Database.EF
 
         public override bool CheckConnectionForDataContext(Type dbContextType, DatabaseConnectionConfiguration connectionConfiguration)
         {
-            try
-            {
-                var context = GetDataContextOfType(dbContextType) as DbContext;
-                context.Database.Connection.Open();
-                context.Database.Connection.Close();
-                return true;
-            }
-            catch (DatabaseConnectionException)
-            {
-                return false;
-            }
+            var context = GetDataContextOfType(dbContextType) as DbContext;
+            context.Database.Connection.Open();
+            context.Database.Connection.Close();
+            return true;
         }
 
         public override void DisposeDataContexts(List<object> dataContexts, bool commitChanges)

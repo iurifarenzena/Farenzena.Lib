@@ -2,19 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Product>Farenzena.Lib.Diagnostic.Log.Observer.Json</Product>
+    <Product>Farenzena.Lib</Product>
     <Description>Provides a Json observer to handle log messages and write them to json files</Description>
     <Copyright>Farenzena 2018</Copyright>
     <PackageId>Farenzena.Lib.Diagnostic.Log.Observer.Json</PackageId>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes>First release</PackageReleaseNotes>
-    <Version>1.0.0</Version>
+    <Version>1.0.0-beta</Version>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
-    <PackageTags>Farenzena, Log, Json</PackageTags>
+    <PackageTags>Farenzena Log Json</PackageTags>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <Company>Farenzena.Lib.Diagnostic.Log.Observer.Json</Company>
-    <Authors>Farenzena.Lib.Diagnostic.Log.Observer.Json</Authors>
+    <Company>Farenzena</Company>
+    <Authors>iurifarenzena</Authors>
   </PropertyGroup>
 
   <ItemGroup>

@@ -84,6 +84,11 @@ namespace Farenzena.Lib.Diagnostic.Log
 
         public static async Task LogAsync(string message, ELogType logType = ELogType.Info, dynamic parameters = null)
         {
+            await LogAsync(message, logType, DefaultSourceName, parameters);
+        }
+
+        public static async Task LogAsync(string message, ELogType logType = ELogType.Info, string source = null, dynamic parameters = null)
+        {
             if (Initialized)
             {
                 var log = new LogObject(message, logType);
@@ -98,6 +103,15 @@ namespace Farenzena.Lib.Diagnostic.Log
             {
                 System.Diagnostics.Debug.WriteLine(message);
                 await LogAsync(message, ELogType.Debug, parameters);
+            }
+        }
+
+        public static async Task LogDebugAsync(string message, Func<dynamic> getParametersFunction = null)
+        {
+            if (DebugEnabled && Initialized)
+            {
+                System.Diagnostics.Debug.WriteLine(message);
+                await LogAsync(message, ELogType.Debug, getParametersFunction?.Invoke());
             }
         }
 
@@ -128,6 +142,18 @@ namespace Farenzena.Lib.Diagnostic.Log
         {
             if (Initialized)
                 Task.Run(() => LogAsync(log)).Wait();
+        }
+
+        public static void LogError(string errorMessage, dynamic dadosParaLogar = null)
+        {
+            if (Initialized)
+                Task.Run(() => LogAsync(errorMessage, ELogType.Error, dadosParaLogar)).Wait();
+        }
+
+        public static void LogError(string errorMessage, string source, dynamic dadosParaLogar = null)
+        {
+            if (Initialized)
+                Task.Run(() => LogAsync(errorMessage, ELogType.Error, source, dadosParaLogar)).Wait();
         }
 
         private static void FillDynamicParameters(dynamic parameters, LogObject log)
