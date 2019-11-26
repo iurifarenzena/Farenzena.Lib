@@ -23,7 +23,7 @@ namespace Farenzena.Lib.Database.EF
 
         public override bool CheckConnectionForDataContext(Type dbContextType, DatabaseConnectionConfiguration connectionConfiguration)
         {
-            var context = GetDataContextOfType(dbContextType) as DbContext;
+            var context = GetDataContextOfType(dbContextType, connectionConfiguration) as DbContext;
             context.Database.Connection.Open();
             context.Database.Connection.Close();
             return true;
@@ -84,7 +84,7 @@ namespace Farenzena.Lib.Database.EF
             return new EFBaseRepository<TPoco>(dataContext as DbContext);
         }
 
-        public override object GetDataContextOfType(Type dataContextType)
+        public override object GetDataContextOfType(Type dataContextType, DatabaseConnectionConfiguration connectionConfig)
         {
             // Get the generic method `Foo`
             var fooMethod = typeof(EFDataContextHandler).GetMethod(nameof(GetDataContextConstructor), BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
@@ -94,7 +94,7 @@ namespace Farenzena.Lib.Database.EF
             var fooOfBarMethod = fooMethod.MakeGenericMethod(dataContextType);
 
             // Invoke the method just like a normal method.
-            var contructorFunc = fooOfBarMethod.Invoke(this, null) as Func<DbContext>;
+            var contructorFunc = fooOfBarMethod.Invoke(this, new[] { connectionConfig }) as Func<DbContext>;
 
             //return GetDataContextConstructor(dataContextType)();
             return contructorFunc();
@@ -111,7 +111,7 @@ namespace Farenzena.Lib.Database.EF
             return types;
         }
 
-        private Func<TDataContext> GetDataContextConstructor<TDataContext>() where TDataContext : DbContext
+        private Func<TDataContext> GetDataContextConstructor<TDataContext>(DatabaseConnectionConfiguration connectionConfig) where TDataContext : DbContext
         {
             if (_dataContextConstructors.ContainsKey(typeof(TDataContext)))
                 return (Func<TDataContext>)_dataContextConstructors[typeof(TDataContext)];
@@ -119,8 +119,9 @@ namespace Farenzena.Lib.Database.EF
             {
                 return () =>
                 {
-                    var config = DatabaseConnectionManager.GetConfiguration(typeof(TDataContext).Name);
-                    var conn = GetConnection(config);
+                    //var config = DatabaseConnectionManager.GetConfiguration(typeof(TDataContext).Name);
+                    //var config = DatabaseConnectionManager.GetConfiguration(configName);
+                    var conn = GetConnection(connectionConfig);
                     return Activator.CreateInstance(typeof(TDataContext), conn) as TDataContext;
                 };
             }

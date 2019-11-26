@@ -20,7 +20,7 @@ namespace Farenzena.Lib.Database
 
         Type GetDataContextTypeForPOCOType(Type pocoType);
 
-        object GetDataContextOfType(Type dataContextType);
+        object GetDataContextOfType(Type dataContextType, DatabaseConnectionConfiguration connectionConfiguration);
         
         IRepository<TPoco> GetRepository<TPoco>(object dataContext) where TPoco : class;
         

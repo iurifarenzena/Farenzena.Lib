@@ -14,7 +14,7 @@ namespace Farenzena.Lib.Database
         public abstract bool CheckConnectionForDataContext(Type dbContextType, DatabaseConnectionConfiguration connectionConfiguration);
         public abstract void DisposeDataContexts(List<object> dataContexts, bool commitChanges);
         public abstract List<Type> GetAcceptedPocoTypes(Type dataContextType);
-        public abstract object GetDataContextOfType(Type dataContextType);
+        public abstract object GetDataContextOfType(Type dataContextType, DatabaseConnectionConfiguration connectionConfiguration);
         public abstract IRepository<TPoco> GetRepository<TPoco>(object dataContext) where TPoco : class;
 
         [Obsolete("This method must not be used. Use DataContextManager.GetDataContext<TDataContext> instead.", true)]

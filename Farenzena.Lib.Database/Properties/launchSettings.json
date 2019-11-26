@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Farenzena.Lib.Database": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\SigmaTEK\\Sigma Batch Import\\Sigma.BatchImport.WPFApp.exe"
+    }
+  }
+}

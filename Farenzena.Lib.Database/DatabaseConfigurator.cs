@@ -26,6 +26,12 @@ namespace Farenzena.Lib.Database
             }
         }
 
+        /// <summary>
+        /// Checks the database connection for each of the DataContexts registered using their type as connection configuration ID
+        /// </summary>
+        /// <param name="allowConfiguration">if true, allows the Configure action of the IDatabaseConnectionConfigurator to be called in case a connection fails</param>
+        /// <param name="forceConfiguration">if true, forces the Configure action of the IDatabaseConnectionConfigurator to be called for each connection</param>
+        /// <returns>true if all the registered DataContexts have their connections working</returns>
         public static bool CheckRegisteredDatabasesConnections(bool allowConfiguration, bool forceConfiguration = false)
         {
             LoggerService.LogDebugAsync("CheckRegisteredDatabasesConnections", () => new { allowConfiguration, forceConfiguration }).Wait();
@@ -39,10 +45,30 @@ namespace Farenzena.Lib.Database
             return true;
         }
 
+        /// <summary>
+        /// Checks the database connection for a given DataContext type using its type name as connection configuration ID
+        /// </summary>
+        /// <param name="dataContextType">The actual type of the DataContext</param>
+        /// <param name="allowConfiguration">if true, allows the Configure action of the IDatabaseConnectionConfigurator to be called in case the connection fails</param>
+        /// <param name="forceConfiguration">if true, forces the Configure action of the IDatabaseConnectionConfigurator to be called the connection</param>
+        /// <returns>true if the DataContexts have its connection working</returns>
         public static bool CheckDatabaseConnection(Type dataContextType, bool allowConfiguration, bool forceConfiguration = false)
         {
             var connectionId = dataContextType.Name;
 
+            return CheckDatabaseConnection(connectionId, confi => DataContextManager.DataContextHandler.CheckConnectionForDataContext(dataContextType, confi), allowConfiguration, forceConfiguration);
+        }
+
+        /// <summary>
+        /// Checks the database connection for a given DataContext type using a specific connection configuration ID
+        /// </summary>
+        /// <param name="dataContextType">The actual type of the DataContext</param>
+        /// <param name="connectionId">The id of the configuration containing the database connection parameters</param>
+        /// <param name="allowConfiguration">if true, allows the Configure action of the IDatabaseConnectionConfigurator to be called in case the connection fails</param>
+        /// <param name="forceConfiguration">if true, forces the Configure action of the IDatabaseConnectionConfigurator to be called the connection</param>
+        /// <returns>true if the DataContexts have its connection working</returns>
+        public static bool CheckDatabaseConnection(Type dataContextType, string connectionId, bool allowConfiguration, bool forceConfiguration = false)
+        {
             return CheckDatabaseConnection(connectionId, confi => DataContextManager.DataContextHandler.CheckConnectionForDataContext(dataContextType, confi), allowConfiguration, forceConfiguration);
         }
 

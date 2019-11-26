@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Farenzena.Lib.Database.Connection;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -56,20 +57,24 @@ namespace Farenzena.Lib.Database
 
         public static object GetDataContext(Type dataContextType, bool useSharedDataContext = true)
         {
+            return GetDataContext(dataContextType, dataContextType.Name, useSharedDataContext);
+        }
+
+        public static object GetDataContext(Type dataContextType, string connectionID, bool useSharedDataContext = true)
+        {
             CheckInitializationNeeded();
 
             if (!useSharedDataContext)
-                return DataContextHandler.GetDataContextOfType(dataContextType);
+                return DataContextHandler.GetDataContextOfType(dataContextType, DatabaseConnectionManager.GetConfiguration(connectionID));
             else
             {
-                var dataContextId = dataContextType.Name;
-                if (!_threadLocalObjects.Value.ContainsKey(dataContextId))
+                if (!_threadLocalObjects.Value.ContainsKey(connectionID))
                 {
-                    var contexto = DataContextHandler.GetDataContextOfType(dataContextType);
-                    _threadLocalObjects.Value.Add(dataContextId, contexto);
+                    var contexto = DataContextHandler.GetDataContextOfType(dataContextType, DatabaseConnectionManager.GetConfiguration(connectionID));
+                    _threadLocalObjects.Value.Add(connectionID, contexto);
                 }
 
-                return _threadLocalObjects.Value[dataContextId];
+                return _threadLocalObjects.Value[connectionID];
             }
         }
 
@@ -79,6 +84,14 @@ namespace Farenzena.Lib.Database
 
             var ctxType = DataContextHandler.GetDataContextTypeForPOCOType(typeof(TPoco));
             return DataContextHandler.GetRepository<TPoco>(GetDataContext(ctxType, useSharedDataContext));
+        }
+
+        public static IRepository<TPoco> GetRepository<TPoco>(string connectionID, bool useSharedDataContext = true) where TPoco : class
+        {
+            CheckInitializationNeeded();
+
+            var ctxType = DataContextHandler.GetDataContextTypeForPOCOType(typeof(TPoco));
+            return DataContextHandler.GetRepository<TPoco>(GetDataContext(ctxType, connectionID, useSharedDataContext));
         }
 
         public static void DisposeDataContexts(bool commitChanges)

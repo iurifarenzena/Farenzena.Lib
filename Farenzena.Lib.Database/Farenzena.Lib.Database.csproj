@@ -5,13 +5,13 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>iurifarenzena</Authors>
     <Company>Farenzena</Company>
-    <Copyright>2018</Copyright>
+    <Copyright>2019</Copyright>
     <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>Added logging</PackageReleaseNotes>
+    <PackageReleaseNotes>Added parameters to allow different, distinc conection for a same DataContext type</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.0.5.2-beta</Version>
+    <Version>1.0.6.0-beta</Version>
     <Product>Farenzena.Lib.Database</Product>
     <Description>Implementations to ease the development of application with database connection</Description>
     <PackageId>Farenzena.Lib.Database</PackageId>
