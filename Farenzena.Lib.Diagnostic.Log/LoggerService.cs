@@ -97,7 +97,17 @@ namespace Farenzena.Lib.Diagnostic.Log
             }
         }
 
-        public static async Task LogDebugAsync(string message, dynamic parameters = null)
+        public static async Task LogDebugAsync(string message)
+        {
+            if (DebugEnabled && Initialized)
+            {
+                System.Diagnostics.Debug.WriteLine(message);
+                await LogAsync(message, ELogType.Debug, null);
+            }
+        }
+
+
+        public static async Task LogDebugAsync(string message, dynamic parameters)
         {
             if (DebugEnabled && Initialized)
             {

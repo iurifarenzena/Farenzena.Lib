@@ -4,11 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Product>Farenzena.Lib</Product>
     <Description>Library to add logging capabilities to your app</Description>
-    <Copyright>Farenzena 2018</Copyright>
+    <Copyright>Farenzena 2019</Copyright>
     <PackageId>Farenzena.Lib.Diagnostic.Log</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes>Added better LogError methods</PackageReleaseNotes>
-    <Version>1.1.2.2-beta</Version>
+    <Version>1.1.2.3-beta</Version>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
     <PackageTags>Farenzena, Log</PackageTags>
