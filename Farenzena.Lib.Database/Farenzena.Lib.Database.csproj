@@ -5,16 +5,17 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>iurifarenzena</Authors>
     <Company>Farenzena</Company>
-    <Copyright>2019</Copyright>
+    <Copyright>2020</Copyright>
     <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>Added parameters to allow different, distinc conection for a same DataContext type</PackageReleaseNotes>
+    <PackageReleaseNotes>Added AsNoTracking methods to the IRepository interface</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.0.6.0-beta</Version>
+    <Version>1.1.0.30-beta</Version>
     <Product>Farenzena.Lib.Database</Product>
     <Description>Implementations to ease the development of application with database connection</Description>
     <PackageId>Farenzena.Lib.Database</PackageId>
+    <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

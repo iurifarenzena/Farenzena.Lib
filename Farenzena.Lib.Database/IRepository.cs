@@ -13,6 +13,7 @@ namespace Farenzena.Lib.Database
         bool Any(Expression<Func<TPoco, bool>> filter);
         void ApplyChanges();
         IQueryable<TPoco> AsQueryable();
+        IQueryable<TPoco> AsQueryableNoTracking();
         int Count();
         int Count(Expression<Func<TPoco, bool>> filter);
         void Delete(TPoco entry);
@@ -24,7 +25,9 @@ namespace Farenzena.Lib.Database
         TPoco Get(params object[] primaryKeys);
         TPoco GetLocal(Expression<Func<TPoco, bool>> filter);
         IEnumerable<TPoco> GetAll();
+        IEnumerable<TPoco> GetAllNoTracking();
         IEnumerable<TPoco> GetAll(Expression<Func<TPoco, bool>> filter);
+        IEnumerable<TPoco> GetAllNoTracking(Expression<Func<TPoco, bool>> filter);
         IEnumerable<TPoco> GetAllLocal(Expression<Func<TPoco, bool>> filter);
         //IQueryable<TPoco> Where(Func<TPoco, bool> filter);
         void Save(TPoco entry, bool forceInsert = false);

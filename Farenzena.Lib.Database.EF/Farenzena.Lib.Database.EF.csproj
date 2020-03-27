@@ -39,11 +39,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Farenzena.Lib.Database, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\temp\packages\Farenzena.Lib.Database.1.0.6-beta\lib\netstandard2.0\Farenzena.Lib.Database.dll</HintPath>
+    <Reference Include="Farenzena.Lib.Database, Version=1.1.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\temp\packages\Farenzena.Lib.Database.1.1.0.30-beta\lib\netstandard2.0\Farenzena.Lib.Database.dll</HintPath>
     </Reference>
     <Reference Include="Farenzena.Lib.Diagnostic.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\temp\packages\Farenzena.Lib.Diagnostic.Log.1.1.2.2-beta\lib\netstandard2.0\Farenzena.Lib.Diagnostic.Log.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\temp\packages\Farenzena.Lib.Diagnostic.Log.1.1.2.3-beta\lib\netstandard2.0\Farenzena.Lib.Diagnostic.Log.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>

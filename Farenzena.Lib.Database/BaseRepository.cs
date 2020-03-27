@@ -16,19 +16,20 @@ namespace Farenzena.Lib.Database
 
         public bool Any(Expression<Func<TPoco, bool>> filter)
         {
-            return AsQueryable().Any(filter);
+            return AsQueryableNoTracking().Any(filter);
         }
         public abstract void ApplyChanges();
         public abstract IQueryable<TPoco> AsQueryable();
+        public abstract IQueryable<TPoco> AsQueryableNoTracking();
 
         public int Count()
         {
-            return AsQueryable().Count();
+            return AsQueryableNoTracking().Count();
         }
 
         public int Count(Expression<Func<TPoco, bool>> filter)
         {
-            return AsQueryable().Count(filter);
+            return AsQueryableNoTracking().Count(filter);
         }
 
         public void DeleteAll()
@@ -55,11 +56,22 @@ namespace Farenzena.Lib.Database
         {
             return GetAll(e => true);
         }
+        
+        public IEnumerable<TPoco> GetAllNoTracking()
+        {
+            return GetAllNoTracking(e => true);
+        }
 
         public IEnumerable<TPoco> GetAll(Expression<Func<TPoco, bool>> filter)
         {
             return AsQueryable().Where(filter);
         }
+
+        public IEnumerable<TPoco> GetAllNoTracking(Expression<Func<TPoco, bool>> filter)
+        {
+            return AsQueryable().Where(filter);
+        }
+
         public abstract IEnumerable<TPoco> GetAllLocal(Expression<Func<TPoco, bool>> filter);
 
         public TPoco Get(Expression<Func<TPoco, bool>> filter)

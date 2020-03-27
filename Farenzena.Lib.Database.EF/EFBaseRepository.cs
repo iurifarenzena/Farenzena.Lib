@@ -29,6 +29,11 @@ namespace Farenzena.Lib.Database.EF
             return _context.Set<TPoco>();
         }
 
+        public override IQueryable<TPoco> AsQueryableNoTracking()
+        {
+            return _context.Set<TPoco>().AsNoTracking();
+        }
+
         public override void DeleteAll(Expression<Func<TPoco, bool>> filter)
         {
             var allItems = _context.Set<TPoco>().Where(filter);
