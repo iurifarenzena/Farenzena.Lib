@@ -10,6 +10,6 @@
     <description>$description$</description>
     <releaseNotes>Fixed the CreatedDate for arriving messages.</releaseNotes>
     <copyright>Copyright 2020</copyright>
-    <tags>async messaging farenzena</tags>
+    <tags>Tag1 Tag2</tags>
   </metadata>
 </package>

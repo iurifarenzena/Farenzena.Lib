@@ -1,0 +1,1 @@
+nuget pack Farenzena.Lib.AsyncMessaging.WCFPushingQueue.csproj -IncludeReferencedProjects -Properties Configuration=Release -OutputDirectory bin\Nuget

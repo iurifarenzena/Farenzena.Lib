@@ -19,6 +19,7 @@ namespace Farenzena.Lib.AsyncMessaging.WCFPushingQueue
         public string SendMessage(MessageDTO messageDTO)
         {
             var message = new BasicMessage(messageDTO.Title, messageDTO.Content, messageDTO.Category);
+            message.DateCreated = messageDTO.DateCreated;
             // For now, it is not necessary to wait, because no response is given
             ConsumerMessageHandler.HandleMessageAsync(message);
             return "ok";

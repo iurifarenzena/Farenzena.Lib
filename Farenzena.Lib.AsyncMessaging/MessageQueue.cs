@@ -98,7 +98,17 @@ namespace Farenzena.Lib.AsyncMessaging
                 throw new InvalidOperationException("The Message Queue Handler was not initialized");
 
             while (!_busyHandlingMessages && _messageQueue.Count >= NUM_MESSAGES_KEEP)
-                _messageQueue.RemoveFirst();
+            {
+                try
+                {
+                    _messageQueue.RemoveFirst();
+                }
+                catch (NullReferenceException nre)
+                {
+                    if (!_messageQueue.Any())
+                        break;
+                }
+            }
 
             try
             {
