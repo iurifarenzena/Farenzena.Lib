@@ -12,21 +12,13 @@ namespace Farenzena.Lib.Database.EFCore
     public class EFCoreDataContextHandler : DataContextHandlerBase
     {
         private Dictionary<Type, Func<DbContext>> _dataContextConstructors = new Dictionary<Type, Func<DbContext>>();
-        
+
         public override bool CheckConnectionForDataContext(Type dbContextType, DatabaseConnectionConfiguration connectionConfiguration)
         {
-            try
-            {
-                var context = GetDataContextOfType(dbContextType) as DbContext;
-                context.Database.OpenConnection();
-
-                return true;
-            }
-            catch (DatabaseConnectionException bde)
-            {
-                System.IO.File.WriteAllText("dberror.txt", bde.ToString());
-                return false;
-            }
+            var context = GetDataContextOfType(dbContextType, connectionConfiguration) as DbContext;
+            context.Database.OpenConnection();
+            context.Database.CloseConnection();
+            return true;
         }
 
         public override void DisposeDataContexts(List<object> dataContexts, bool commitChanges)
@@ -79,7 +71,7 @@ namespace Farenzena.Lib.Database.EFCore
             return new EFCoreBaseRepository<TPoco>(dataContext as DbContext);
         }
 
-        public override object GetDataContextOfType(Type dataContextType)
+        public override object GetDataContextOfType(Type dataContextType, DatabaseConnectionConfiguration connectionConfiguration)
         {
             // Get the generic method `Foo`
             var fooMethod = typeof(EFCoreDataContextHandler).GetMethod(nameof(GetDataContextConstructor), BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
@@ -89,7 +81,7 @@ namespace Farenzena.Lib.Database.EFCore
             var fooOfBarMethod = fooMethod.MakeGenericMethod(dataContextType);
 
             // Invoke the method just like a normal method.
-            var contructorFunc = fooOfBarMethod.Invoke(this, null) as Func<DbContext>;
+            var contructorFunc = fooOfBarMethod.Invoke(this, new[] { connectionConfiguration }) as Func<DbContext>;
 
             //return GetDataContextConstructor(dataContextType)();
             return contructorFunc();
@@ -106,38 +98,36 @@ namespace Farenzena.Lib.Database.EFCore
             return types;
         }
 
-        private Func<TDataContext> GetDataContextConstructor<TDataContext>() where TDataContext : DbContext
+        private Func<TDataContext> GetDataContextConstructor<TDataContext>(DatabaseConnectionConfiguration connectionConfig) where TDataContext : DbContext
         {
             if (_dataContextConstructors.ContainsKey(typeof(TDataContext)))
                 return (Func<TDataContext>)_dataContextConstructors[typeof(TDataContext)];
             else
             {
-                return CreateDataContextConstructor<TDataContext>();
+                return CreateDataContextConstructor<TDataContext>(connectionConfig);
             }
         }
 
-        private Func<TDataContext> CreateDataContextConstructor<TDataContext>()where TDataContext : DbContext
+        private Func<TDataContext> CreateDataContextConstructor<TDataContext>(DatabaseConnectionConfiguration connectionConfig) where TDataContext : DbContext
         {
             return () =>
             {
-                var optionsBuilder = GetDbContextOptionsBuilder<TDataContext>();
+                var optionsBuilder = GetDbContextOptionsBuilder<TDataContext>(connectionConfig);
                 return Activator.CreateInstance(typeof(TDataContext), optionsBuilder.Options) as TDataContext;
             };
         }
 
-        private DbContextOptionsBuilder<TDataContext> GetDbContextOptionsBuilder<TDataContext>() where TDataContext : DbContext
+        private DbContextOptionsBuilder<TDataContext> GetDbContextOptionsBuilder<TDataContext>(DatabaseConnectionConfiguration connectionConfig) where TDataContext : DbContext
         {
-            var config = DatabaseConnectionManager.GetConfiguration(typeof(TDataContext).Name);
-            
             var dbOptions = new DbContextOptionsBuilder<TDataContext>();
-            if (config.DatabaseType == EDatabaseType.MSSQLServer)
-                ConfigureForMSSQLServer(config, dbOptions);
-            else if (config.DatabaseType == EDatabaseType.SQLite)
-                ConfigureForSQLite(config, dbOptions);
-            else if (config.DatabaseType == EDatabaseType.InMemoryTempDB)
-                ConfigureForInMemoryTempDB(config, dbOptions);
+            if (connectionConfig.DatabaseType == EDatabaseType.MSSQLServer)
+                ConfigureForMSSQLServer(connectionConfig, dbOptions);
+            else if (connectionConfig.DatabaseType == EDatabaseType.SQLite)
+                ConfigureForSQLite(connectionConfig, dbOptions);
+            else if (connectionConfig.DatabaseType == EDatabaseType.InMemoryTempDB)
+                ConfigureForInMemoryTempDB(connectionConfig, dbOptions);
             else
-                throw new DatabaseConnectionException($"Connections with database type {config.DatabaseType} are not supported yet.");
+                throw new DatabaseConnectionException($"Connections with database type {connectionConfig.DatabaseType} are not supported yet.");
 
             return dbOptions;
         }

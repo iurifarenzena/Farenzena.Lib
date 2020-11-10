@@ -28,6 +28,11 @@ namespace Farenzena.Lib.Database.EFCore
             return _context.Set<TPoco>();
         }
 
+        public override IQueryable<TPoco> AsQueryableNoTracking()
+        {
+            return _context.Set<TPoco>().AsNoTracking();
+        }
+
         public override void Delete(TPoco entry)
         {
             var dbentry = ToDbEntry(entry);

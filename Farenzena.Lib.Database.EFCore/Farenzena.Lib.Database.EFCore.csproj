@@ -7,19 +7,19 @@
     <Product>Farenzena.Lib</Product>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Database implementations using Entity Framework Core</Description>
-    <Copyright>2018</Copyright>
+    <Copyright>2020</Copyright>
     <PackageLicenseUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/iurifarenzena/Farenzena.Lib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/iurifarenzena/Farenzena.Lib/blob/master/LICENSE</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageReleaseNotes>InMemotyTempDB config type implemented</PackageReleaseNotes>
-    <Version>1.0.1</Version>
+    <Version>1.1.4-beta</Version>
     <PackageId>Farenzena.Lib.Database.EFCore</PackageId>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Farenzena.Lib.Database" Version="1.0.4" />
+    <PackageReference Include="Farenzena.Lib.Database" Version="1.1.0.30-beta" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.1.1" />
