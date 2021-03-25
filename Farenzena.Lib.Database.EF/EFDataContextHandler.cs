@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Data.Common;
 using Farenzena.Lib.Database.EF.Configurations;
 using Oracle.ManagedDataAccess.Client;
+using Farenzena.Lib.Diagnostic.Log;
 
 namespace Farenzena.Lib.Database.EF
 {
@@ -18,7 +19,14 @@ namespace Farenzena.Lib.Database.EF
 
         public EFDataContextHandler() : base()
         {
-            DbConfiguration.SetConfiguration(new EF6CodeConfig());
+            try
+            {
+                DbConfiguration.SetConfiguration(new EF6CodeConfig());
+            }
+            catch (System.InvalidOperationException e)
+            {
+                LoggerService.Log(e);
+            }
         }
 
         public override bool CheckConnectionForDataContext(Type dbContextType, DatabaseConnectionConfiguration connectionConfiguration)
