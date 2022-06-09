@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26906.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Database", "Farenzena.Lib.Database\Farenzena.Lib.Database.csproj", "{86737C6D-7D5C-4069-876E-7C37D46A706A}"
 EndProject
@@ -31,9 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Diagnostic.Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Diagnostic.Log.Observer.Json", "Farenzena.Lib.Diagnostic.Log.Observer.Json\Farenzena.Lib.Diagnostic.Log.Observer.Json.csproj", "{83AA21CD-8D27-4170-BB9A-D988FD6B9076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Diagnostic.Log.Observer.Console", "Farenzena.Lib.Diagnostic.Log.Observer.Console\Farenzena.Lib.Diagnostic.Log.Observer.Console.csproj", "{5FAA82CB-5DA3-43EA-8A54-4FC6F943EBF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Diagnostic.Log.Observer.Console", "Farenzena.Lib.Diagnostic.Log.Observer.Console\Farenzena.Lib.Diagnostic.Log.Observer.Console.csproj", "{5FAA82CB-5DA3-43EA-8A54-4FC6F943EBF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue", "Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue\Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue.csproj", "{C699B2C6-99C6-47C9-B385-EDB255873B6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue", "Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue\Farenzena.Lib.Diagnostic.Log.Observer.MessageQueue.csproj", "{C699B2C6-99C6-47C9-B385-EDB255873B6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farenzena.Lib.Diagnostic.Log.Observer.RavenDB", "Farenzena.Lib.Diagnostic.Log.Observer.RavenDB\Farenzena.Lib.Diagnostic.Log.Observer.RavenDB.csproj", "{9F5B8943-1BD2-4EB1-9A84-2617719CB46A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{C699B2C6-99C6-47C9-B385-EDB255873B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C699B2C6-99C6-47C9-B385-EDB255873B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C699B2C6-99C6-47C9-B385-EDB255873B6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F5B8943-1BD2-4EB1-9A84-2617719CB46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F5B8943-1BD2-4EB1-9A84-2617719CB46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F5B8943-1BD2-4EB1-9A84-2617719CB46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F5B8943-1BD2-4EB1-9A84-2617719CB46A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

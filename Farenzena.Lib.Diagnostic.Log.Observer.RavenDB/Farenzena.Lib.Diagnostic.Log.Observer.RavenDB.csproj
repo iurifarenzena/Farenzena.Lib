@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Company>Farenzena</Company>
+    <Authors>iurifarenzena</Authors>
+    <Product>Farenzena.Lib</Product>
+    <Version>1.0.0.0-beta</Version>
+    <Description>Provides a RavenDB observer to handle log messages and write them to the document database</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Farenzena.Lib.Diagnostic.Log" Version="1.1.2.4-beta" />
+    <PackageReference Include="RavenDB.Client" Version="5.3.102" />
+  </ItemGroup>
+
+</Project>

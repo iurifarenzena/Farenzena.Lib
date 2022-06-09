@@ -91,8 +91,7 @@ namespace Farenzena.Lib.Diagnostic.Log
         {
             if (Initialized)
             {
-                var log = new LogObject(message, logType);
-                FillDynamicParameters(parameters, log);
+                LogObject log = CreateLogObject(message, logType, source, parameters);
                 await PostLogInternal(log);
             }
         }
@@ -105,7 +104,6 @@ namespace Farenzena.Lib.Diagnostic.Log
                 await LogAsync(message, ELogType.Debug, null);
             }
         }
-
 
         public static async Task LogDebugAsync(string message, dynamic parameters)
         {
@@ -177,6 +175,18 @@ namespace Farenzena.Lib.Diagnostic.Log
                     log.AddParameter(property.Name, property.GetValue(parameters));
                 }
             }
+        }
+
+        private static LogObject CreateLogObject(string message, ELogType logType, string source, dynamic parameters)
+        {
+            var log = new LogObject(message, logType, source);
+            FillDynamicParameters(parameters, log);
+            return log;
+        }
+
+        public static LogObject CreateEvidenceLogObject(string message, dynamic parameters)
+        {
+            return CreateLogObject(message, ELogType.Evidence, DefaultSourceName, parameters);
         }
     }
 }

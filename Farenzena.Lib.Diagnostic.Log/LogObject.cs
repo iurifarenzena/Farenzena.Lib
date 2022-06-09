@@ -11,11 +11,13 @@ namespace Farenzena.Lib.Diagnostic.Log
             TimeStamp = DateTime.Now;
         }
 
-        public LogObject(string message, ELogType logType, string souce) : this(message, logType, null, souce)
+        public LogObject(string message, ELogType logType, string souce) 
+            : this(message, logType, null, souce)
         {
         }
 
-        public LogObject(string message, ELogType logType, Dictionary<string, string> parameters = null, string souce = null) : this()
+        public LogObject(string message, ELogType logType, Dictionary<string, object> parameters = null, string souce = null) 
+            : this()
         {
             Message = message;
             Parameters = parameters;
@@ -47,18 +49,13 @@ namespace Farenzena.Lib.Diagnostic.Log
         /// A parameter dictionary to receive information pertinent to the log.
         /// The first object represents the name of the parameter, example "Operator", and the second the value, example "02".
         /// </summary>
-        public Dictionary<string, string> Parameters { get; private set; }
-
-        public void AddParameter(string key, string value)
-        {
-            if (Parameters == null)
-                Parameters = new Dictionary<string, string>();
-            Parameters.Add(key, value);
-        }
+        public Dictionary<string, object> Parameters { get; private set; }
 
         public void AddParameter(string key, object value)
         {
-            AddParameter(key, value?.ToString());
+            if (Parameters == null)
+                Parameters = new Dictionary<string, object>();
+            Parameters.Add(key, value);
         }
 
         public void SetSorceIfEmpty(string sorce)
